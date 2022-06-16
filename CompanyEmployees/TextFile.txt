@@ -1,0 +1,369 @@
+﻿in here we jot every thing we need here like a documentation 
+___________________________________________________________________________________
+launch settings for ASP.NET WEB API we set our launch browser property to false for both 
+____________________________________________________________________________________
+Migration using git bash 
+From Persistence level cd to the persistence layer where dbcontext is inside
+dotnet ef --startup-project ../project_name/ migrations add initial migration
+dotnet ef --startup-project ../project_name/ database update
+________________________________________________________________________________________
+
+Connection string for database 
+"ConnectionStrings": {
+    "DefaultConnection": "Server=ABP-DIG-L015;Database=FirstApp;MultipleActiveResultSets=true;User Id=tomotelet;Password=Fastafosto&696969;"
+  },
+  ____________________________________________________________________________
+  we create our Db context using the below 
+  class RepositoryContext :DbContext
+    {
+        public RepositoryContext(DbContextOptions options): base(options)
+        {
+
+        }
+        public DbSet<Company> Companies { get; set; } //these are the model classes with their respective properties which will be displayed in the database
+
+        public DbSet<Employee> Employees { get; set; }
+  ___________________________________________________________________________
+  so when we want to input into our database without using mssql to input into the fields 
+  we can use code first migration to achieve that by adding the following to our context and creating a configuration class in our entities folder 
+
+  inside the configuration class for each entity or table we insert this way for as many entities we wish to add 
+  although this is a lot of code but senator dotun said its is good to initiate an update into our db without going to the mssql to insert manually
+  so we use this instead as an alternative.
+
+  class CompanyConfiguration : IEntityTypeConfiguration<Company>
+    {
+        public void Configure(EntityTypeBuilder<Company> builder)
+
+        {
+            builder.HasData
+            (
+            new Company
+            {
+                Id = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"),
+                Name = "IT_Solutions Ltd",
+                Address = "583 Wall Dr. Gwynn Oak, MD 21207",
+                Country = "USA"
+            },
+            new Company
+            {
+                Id = new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"),
+                Name = "Admin_Solutions Ltd",
+                Address = "312 Forest Avenue, BF 923",
+                Country = "USA"
+            }
+            );
+
+        }
+    }
+    ____________________________________________________________________________________________________________________________________
+    then after dthe configuration we insert a command into our context class. so we insert this in betwwen the normal dbcontext and the dbset
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new CompanyConfiguration());
+            modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
+        }
+
+  _____________________________________________________________________________________
+  then we add this to our configure services method for our database connection 
+   services.AddDbContext<DefaultContext>(options=>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+            );
+  ___________________________________________________________________________
+  because pm sometimes doesnt work we use the powershell EF to migrate so we add the following to configure method in startup
+  public void Configure(IApplicationBuilder app, IWebHostEnvironment env, //addthefllg DefaultContext dbContext)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                dbContext.Database.Migrate(); //add this also to migrate automatically 
+            }
+
+  ________________________________________________________________________________
+  and then we add a configuresqlcontext to the extension folder for sql connection with our database it goes like 
+  
+  public static void ConfigureSqlContext(this IServiceCollection services, 
+IConfiguration configuration) =>
+ services.AddDbContext<RepositoryContext>(opts =>
+ opts.UseSqlServer(configuration.GetConnectionString("sqlConnection")));
+
+  ________________________________________________________________________________________
+  creating a logger service we add nlog.config item in main solution and add the following 
+  <?xml version="1.0" encoding="utf-8" ?>
+<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ autoReload="true"
+ internalLogLevel="Trace"
+ 
+internalLogFile="C:\Users\tomotelet\source\repos\CompanyEmployees\CompanyEmployees\Projects\internal_logs\internallog.txt">
+ <targets>
+ <target name="logfile" xsi:type="File"
+ 
+fileName="C:\Users\tomotelet\source\repos\CompanyEmployees\CompanyEmployees\Projects\logs\${shortdate}_logfile.txt"
+ layout="${longdate} ${level:uppercase=true} ${message}"/>
+ </targets>
+ <rules>
+ <logger name="*" minlevel="Debug" writeTo="logfile" />
+ </rules>
+</nlog>
+___________________________________________________________________
+
+after we then create a method in the extension and it goes like :::
+//this is used to configure the logger service 
+        public static void ConfigureLoggerService(this IServiceCollection services) =>
+        services.AddScoped<ILoggerManager, LoggerManager>();
+___________________________________________________________________________
+
+then we put the below in our weatherforecastcontroller::::
+[Route("[controller]")]
+    [ApiController]
+    public class WeatherForecastController : ControllerBase
+    {
+        private ILoggerManager _logger;
+        public WeatherForecastController(ILoggerManager logger)
+        {
+            _logger = logger;
+        }
+ 
+ [HttpGet]
+        public IEnumerable<string> Get()
+        {
+            _logger.LogInfo("Here is info message from our values controller.");
+            _logger.LogDebug("Here is debug message from our values controller.");
+            _logger.LogWarn("Here is warn message from our values controller.");
+            _logger.LogError("Here is an error message from our values controller.");
+            return new string[] { "value1", "value2" };
+        }
+    }
+    _________________________________________________________________________
+    then inside the startup class we add the following inside the startup method for nlog service
+    public Startup(IConfiguration configuration)
+        {
+            //used for the nlog service... this right here
+            LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(),
+            "/nlog.config"));
+
+            Configuration = configuration;
+        }
+    ____________________________________________________________________________
+    then we call the method we wrote in extensions folder inside the configure services method as
+    public void ConfigureServices(IServiceCollection services)
+        {
+            services.ConfigureCors(); //then we configure it in our services and call the method in our extension
+            services.ConfigureIISIntegration(); // also calling this from our extension for IIS
+            services.ConfigureLoggerService(); //this is for the logger service 
+    ____________________________________________________________________________
+    and then we add the below after the configure method in our startup class after the if statement in this order
+    else
+            {
+                app.UseHsts();
+            }
+            //            Microsoft advises that the order of adding different middlewares to the
+            //application builder is very important. So the UseRouting() method
+            //should be called before the UseAuthorization() method and
+            //UseCors() or UseStaticFiles() have to be called before the
+            //UseRouting() method.
+            app.UseHttpsRedirection();
+            app.UseStaticFiles(); //enables using static files for the request. If we don’t set a path to the static files directory, it will use a wwwroot folder in our project by default.
+            app.UseCors("CorsPolicy");
+            app.UseForwardedHeaders(new ForwardedHeadersOptions //will forward proxy headers to the current request.This will help us during application deployment.
+
+            {
+                ForwardedHeaders = ForwardedHeaders.All
+            });
+    __________________________________________________________________
+    then we have to create an interface inside a folder which will be used by the logger service to log files 
+
+     public interface ILoggerManager
+    {
+        void LogInfo(string message);
+        void LogWarn(string message);
+        void LogDebug(string message);
+        void LogError(string message);
+
+    }
+    __________________________________________________________________
+    and then create a class in services folder that implements the declarations in our interface
+    public class LoggerManager : ILoggerManager
+    {
+        private static ILogger logger = LogManager.GetCurrentClassLogger();
+        public LoggerManager()
+        {
+        }
+        public void LogDebug(string message)
+        {
+            logger.Debug(message);
+        }
+        public void LogError(string message)
+        {
+            logger.Error(message);
+        }
+        public void LogInfo(string message)
+        {
+            logger.Info(message);
+        }
+        public void LogWarn(string message)
+        {
+            logger.Warn(message);
+        }
+
+    }
+    _______________________________________________________________________________
+    so we create a repository interface which will stand as a declation for our repository pattern and it will have the below default configurations 
+    for performing crud operations as an abstract layer 
+
+    public interface IRepositoryBase<T>
+    {
+        IQueryable<T> FindAll(bool trackChanges);
+        IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression,
+        bool trackChanges);
+        void Create(T entity);
+        void Update(T entity);
+        void Delete(T entity);
+    }
+    ___________________________________________________________________________________________________
+    then we create a new abstract class called repository to implement the declarations inside the repository interface with the following code below 
+    public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
+
+    {
+        protected RepositoryContext RepositoryContext;
+        public RepositoryBase(RepositoryContext repositoryContext)
+        {
+            RepositoryContext = repositoryContext;
+        }
+       
+       //the findall declartion using repository pattern and i want to believe that this is a reusable code 
+        public IQueryable<T> FindAll(bool trackChanges) =>
+        !trackChanges ?
+        RepositoryContext.Set<T>()
+            .AsNoTracking() :
+            RepositoryContext.Set<T>();
+        
+        //the findByCondition implementation
+        public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression,
+        bool trackChanges) =>
+        !trackChanges ?
+        RepositoryContext.Set<T>()
+        .Where(expression)
+        .AsNoTracking() :
+        RepositoryContext.Set<T>()
+        .Where(expression);
+       
+       //create implementation 
+        public void Create(T entity) => RepositoryContext.Set<T>().Add(entity);
+       
+       //update implementation
+        public void Update(T entity) => RepositoryContext.Set<T>().Update(entity);
+
+        //Delete implementation 
+        public void Delete(T entity) => RepositoryContext.Set<T>().Remove(entity);
+    }
+    _______________________________________________________________________________________
+    then we create an interface and classes for each users of the repository base which they will inherit from the base and have access 
+    to all the methods in the repository base 
+    so we create a new interface for each model that wants to use the repository pattern and then create a class to inplement them
+    with the following 
+
+    public class CompanyRepository : RepositoryBase<Company>, ICompanyRepository
+{
+ public CompanyRepository(RepositoryContext repositoryContext)
+ : base(repositoryContext)
+ {
+ }
+}
+__________________________________________________________________________________________________________
+so we need a repository manager to create instances of user classes for us and then register it inside the dependency injection container 
+so we create an interface of IRepository Manager with the following 
+public interface IRepositoryManager
+{
+ ICompanyRepository Company { get; }
+ IEmployeeRepository Employee { get; }
+ void Save();
+}
+____________________________________________________________________________________________
+and then create a class to implement the declaratons inside the maager interface with the following 
+public class RepositoryManager : IRepositoryManager
+    {
+        private RepositoryContext _repositoryContext;
+
+        private ICompanyRepository _companyRepository;
+        private IEmployeeRepository _employeeRepository;
+        public RepositoryManager(RepositoryContext repositoryContext)
+        {
+            _repositoryContext = repositoryContext;
+        }
+        public ICompanyRepository Company
+        {
+            get
+            {
+                if (_companyRepository == null)
+                    _companyRepository = new CompanyRepository(_repositoryContext);
+                return _companyRepository;
+            }
+        }
+        public IEmployeeRepository Employee
+        {
+            get
+            {
+                if (_employeeRepository == null)
+                    _employeeRepository = new EmployeeRepository(_repositoryContext);
+                return _employeeRepository;
+            }
+        }
+        public void Save() => _repositoryContext.SaveChanges();
+
+    }
+    so doing it this way is good practice as we can add 2 companies modify 2 employees all in one action and then save changes
+    using the save method .
+    ___________________________________________________________________________________________________
+    next we create and handle our get request or we can call them the action method to return from the database 
+    so inside our user interface we put the declaration and it goes like 
+    public interface ICompanyRepository
+{
+ IEnumerable<Company> GetAllCompanies(bool trackChanges);
+}
+_______________________________________________________________________________________
+
+and then we create a class also to implement the method to return all the properties inside our company 
+goes like 
+public class CompanyRepository : RepositoryBase<Company>, ICompanyRepository
+    {
+        public CompanyRepository(RepositoryContext repositoryContext) : base(repositoryContext)
+        {
+        }
+
+        public IEnumerable<Company> GetAllCompanies(bool trackChanges) =>
+        FindAll(trackChanges)
+        .OrderBy(c => c.Name)
+        .ToList();
+    }
+    ______________________________________________________________________________________________
+    so inside the companies controller we can call our services like this 
+     [Route("api/companies")]
+    [ApiController]
+    public class CompaniesController : ControllerBase
+    {
+        private readonly IRepositoryManager _repository;
+        private readonly ILoggerManager _logger;
+        public CompaniesController(IRepositoryManager repository, ILoggerManager logger)
+        {
+            _repository = repository;
+            _logger = logger;
+        }
+        [HttpGet] //Because there is no route attribute right above the action, the route for the GetCompanies action will be api/companies which is the route placed on top of our controller. 
+        public IActionResult GetCompanies()
+        {
+            try
+            {
+                var companies = _repository.Company.GetAllCompanies(trackChanges: false);
+                return Ok(companies); //ok method does not only return the result but also the status code 
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong in the {nameof(GetCompanies)} action { ex}");
+            return StatusCode(500, "Internal server error");
+            }
+        }
+    }
+    __________________________________

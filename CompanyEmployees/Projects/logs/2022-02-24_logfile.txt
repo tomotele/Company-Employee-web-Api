@@ -1,0 +1,30 @@
+2022-02-24 14:59:30.9167 ERROR Something went wrong in the GetCompanies action AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+List`1 -> IEnumerable`1
+System.Collections.Generic.List`1[[Entities.Models.Company, Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.IEnumerable`1[[Entities.DataTransferObjects.CompanyDto, Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Company -> CompanyDto
+Entities.Models.Company -> Entities.DataTransferObjects.CompanyDto
+   at lambda_method29(Closure , Company , CompanyDto , ResolutionContext )
+   at lambda_method28(Closure , Object , IEnumerable`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method28(Closure , Object , IEnumerable`1 , ResolutionContext )
+   at CompanyEmployees.Controllers.CompaniesController.GetCompanies() in C:\Users\tomotelet\source\repos\CompanyEmployees\CompanyEmployees\Controllers\CompaniesController.cs:line 33 
+2022-02-24 15:00:39.4508 ERROR Something went wrong in the GetCompanies action AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+List`1 -> IEnumerable`1
+System.Collections.Generic.List`1[[Entities.Models.Company, Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.IEnumerable`1[[Entities.DataTransferObjects.CompanyDto, Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Company -> CompanyDto
+Entities.Models.Company -> Entities.DataTransferObjects.CompanyDto
+   at lambda_method29(Closure , Company , CompanyDto , ResolutionContext )
+   at lambda_method28(Closure , Object , IEnumerable`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method28(Closure , Object , IEnumerable`1 , ResolutionContext )
+   at CompanyEmployees.Controllers.CompaniesController.GetCompanies() in C:\Users\tomotelet\source\repos\CompanyEmployees\CompanyEmployees\Controllers\CompaniesController.cs:line 33 

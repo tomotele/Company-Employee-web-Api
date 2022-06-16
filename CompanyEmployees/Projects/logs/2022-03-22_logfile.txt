@@ -1,0 +1,6 @@
+2022-03-22 11:35:37.1343 INFO Employee with id: 80abbca8-664d-4b20-b5de-024705497d4a doesnt exist in the database. 
+2022-03-22 13:56:07.7610 INFO Company with id: 53a1237a-3ed3-4462-b9f0-5a7bb1056a33 doesn't exist in the database.
+2022-03-22 14:07:56.4419 INFO Company with id: c9d4c053-49b6-410c-bc78-2d54a9991870 doesn't exist in the database.
+2022-03-22 14:10:36.1627 INFO Company with id: c9d4c053-49b6-410c-bc78-2d54a9991870 doesn't exist in the database.
+2022-03-22 14:10:38.1173 INFO Company with id: c9d4c053-49b6-410c-bc78-2d54a9991870 doesn't exist in the database.
+2022-03-22 14:10:40.5547 INFO Company with id: c9d4c053-49b6-410c-bc78-2d54a9991870 doesn't exist in the database.

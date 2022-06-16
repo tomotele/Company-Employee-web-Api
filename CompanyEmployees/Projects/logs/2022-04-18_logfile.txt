@@ -1,0 +1,152 @@
+2022-04-18 16:11:14.7063 ERROR Something went wrong: System.InvalidCastException: Unable to cast object of type 'System.Net.Http.Headers.MediaTypeHeaderValue' to type 'Microsoft.Net.Http.Headers.MediaTypeHeaderValue'.
+   at CompanyEmployees.Utility.EmployeeLinks.ShouldGenerateLinks(HttpContext httpContext) in C:\Users\tomotelet\source\repos\CompanyEmployees\CompanyEmployees\Utility\EmployeeLinks.cs:line 46
+   at CompanyEmployees.Utility.EmployeeLinks.TryGenerateLinks(IEnumerable`1 employeesDto, String fields, Guid companyId, HttpContext httpContext) in C:\Users\tomotelet\source\repos\CompanyEmployees\CompanyEmployees\Utility\EmployeeLinks.cs:line 33
+   at Service.EmployeeService.GetEmployeesAsync(Guid companyId, LinkParameters linkParameters, Boolean trackChanges) in C:\Users\tomotelet\source\repos\CompanyEmployees\Service.Contracts\EmployeeService.cs:line 39
+   at Presentation.Controllers.EmployeesController.GetEmployeesForCompany(Guid companyId, EmployeeParameters employeeParameters) in C:\Users\tomotelet\source\repos\CompanyEmployees\Presentation\Controllers\EmployeesController.cs:line 27
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2022-04-18 16:12:09.4808 ERROR Something went wrong: System.InvalidCastException: Unable to cast object of type 'System.Net.Http.Headers.MediaTypeHeaderValue' to type 'Microsoft.Net.Http.Headers.MediaTypeHeaderValue'.
+   at CompanyEmployees.Utility.EmployeeLinks.ShouldGenerateLinks(HttpContext httpContext) in C:\Users\tomotelet\source\repos\CompanyEmployees\CompanyEmployees\Utility\EmployeeLinks.cs:line 46
+   at CompanyEmployees.Utility.EmployeeLinks.TryGenerateLinks(IEnumerable`1 employeesDto, String fields, Guid companyId, HttpContext httpContext) in C:\Users\tomotelet\source\repos\CompanyEmployees\CompanyEmployees\Utility\EmployeeLinks.cs:line 33
+   at Service.EmployeeService.GetEmployeesAsync(Guid companyId, LinkParameters linkParameters, Boolean trackChanges) in C:\Users\tomotelet\source\repos\CompanyEmployees\Service.Contracts\EmployeeService.cs:line 39
+   at Presentation.Controllers.EmployeesController.GetEmployeesForCompany(Guid companyId, EmployeeParameters employeeParameters) in C:\Users\tomotelet\source\repos\CompanyEmployees\Presentation\Controllers\EmployeesController.cs:line 27
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2022-04-18 16:13:28.4779 ERROR Something went wrong: System.InvalidCastException: Unable to cast object of type 'System.Net.Http.Headers.MediaTypeHeaderValue' to type 'Microsoft.Net.Http.Headers.MediaTypeHeaderValue'.
+   at CompanyEmployees.Utility.EmployeeLinks.ShouldGenerateLinks(HttpContext httpContext) in C:\Users\tomotelet\source\repos\CompanyEmployees\CompanyEmployees\Utility\EmployeeLinks.cs:line 46
+   at CompanyEmployees.Utility.EmployeeLinks.TryGenerateLinks(IEnumerable`1 employeesDto, String fields, Guid companyId, HttpContext httpContext) in C:\Users\tomotelet\source\repos\CompanyEmployees\CompanyEmployees\Utility\EmployeeLinks.cs:line 33
+   at Service.EmployeeService.GetEmployeesAsync(Guid companyId, LinkParameters linkParameters, Boolean trackChanges) in C:\Users\tomotelet\source\repos\CompanyEmployees\Service.Contracts\EmployeeService.cs:line 39
+   at Presentation.Controllers.EmployeesController.GetEmployeesForCompany(Guid companyId, EmployeeParameters employeeParameters) in C:\Users\tomotelet\source\repos\CompanyEmployees\Presentation\Controllers\EmployeesController.cs:line 27
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2022-04-18 16:16:33.8808 ERROR Something went wrong: System.InvalidCastException: Unable to cast object of type 'System.Net.Http.Headers.MediaTypeHeaderValue' to type 'Microsoft.Net.Http.Headers.MediaTypeHeaderValue'.
+   at CompanyEmployees.Utility.EmployeeLinks.ShouldGenerateLinks(HttpContext httpContext) in C:\Users\tomotelet\source\repos\CompanyEmployees\CompanyEmployees\Utility\EmployeeLinks.cs:line 46
+   at CompanyEmployees.Utility.EmployeeLinks.TryGenerateLinks(IEnumerable`1 employeesDto, String fields, Guid companyId, HttpContext httpContext) in C:\Users\tomotelet\source\repos\CompanyEmployees\CompanyEmployees\Utility\EmployeeLinks.cs:line 33
+   at Service.EmployeeService.GetEmployeesAsync(Guid companyId, LinkParameters linkParameters, Boolean trackChanges) in C:\Users\tomotelet\source\repos\CompanyEmployees\Service.Contracts\EmployeeService.cs:line 39
+   at Presentation.Controllers.EmployeesController.GetEmployeesForCompany(Guid companyId, EmployeeParameters employeeParameters) in C:\Users\tomotelet\source\repos\CompanyEmployees\Presentation\Controllers\EmployeesController.cs:line 27
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2022-04-18 16:31:01.3207 ERROR Something went wrong: System.InvalidCastException: Unable to cast object of type 'System.Net.Http.Headers.MediaTypeHeaderValue' to type 'Microsoft.Net.Http.Headers.MediaTypeHeaderValue'.
+   at CompanyEmployees.Utility.EmployeeLinks.ShouldGenerateLinks(HttpContext httpContext) in C:\Users\tomotelet\source\repos\CompanyEmployees\CompanyEmployees\Utility\EmployeeLinks.cs:line 46
+   at CompanyEmployees.Utility.EmployeeLinks.TryGenerateLinks(IEnumerable`1 employeesDto, String fields, Guid companyId, HttpContext httpContext) in C:\Users\tomotelet\source\repos\CompanyEmployees\CompanyEmployees\Utility\EmployeeLinks.cs:line 33
+   at Service.EmployeeService.GetEmployeesAsync(Guid companyId, LinkParameters linkParameters, Boolean trackChanges) in C:\Users\tomotelet\source\repos\CompanyEmployees\Service.Contracts\EmployeeService.cs:line 39
+   at Presentation.Controllers.EmployeesController.GetEmployeesForCompany(Guid companyId, EmployeeParameters employeeParameters) in C:\Users\tomotelet\source\repos\CompanyEmployees\Presentation\Controllers\EmployeesController.cs:line 27
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2022-04-18 16:35:03.3496 ERROR Something went wrong: System.InvalidCastException: Unable to cast object of type 'System.Net.Http.Headers.MediaTypeHeaderValue' to type 'Microsoft.Net.Http.Headers.MediaTypeHeaderValue'.
+   at CompanyEmployees.Utility.EmployeeLinks.ShouldGenerateLinks(HttpContext httpContext) in C:\Users\tomotelet\source\repos\CompanyEmployees\CompanyEmployees\Utility\EmployeeLinks.cs:line 46
+   at CompanyEmployees.Utility.EmployeeLinks.TryGenerateLinks(IEnumerable`1 employeesDto, String fields, Guid companyId, HttpContext httpContext) in C:\Users\tomotelet\source\repos\CompanyEmployees\CompanyEmployees\Utility\EmployeeLinks.cs:line 33
+   at Service.EmployeeService.GetEmployeesAsync(Guid companyId, LinkParameters linkParameters, Boolean trackChanges) in C:\Users\tomotelet\source\repos\CompanyEmployees\Service.Contracts\EmployeeService.cs:line 39
+   at Presentation.Controllers.EmployeesController.GetEmployeesForCompany(Guid companyId, EmployeeParameters employeeParameters) in C:\Users\tomotelet\source\repos\CompanyEmployees\Presentation\Controllers\EmployeesController.cs:line 27
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2022-04-18 16:35:23.6633 ERROR Something went wrong: System.InvalidCastException: Unable to cast object of type 'System.Net.Http.Headers.MediaTypeHeaderValue' to type 'Microsoft.Net.Http.Headers.MediaTypeHeaderValue'.
+   at CompanyEmployees.Utility.EmployeeLinks.ShouldGenerateLinks(HttpContext httpContext) in C:\Users\tomotelet\source\repos\CompanyEmployees\CompanyEmployees\Utility\EmployeeLinks.cs:line 46
+   at CompanyEmployees.Utility.EmployeeLinks.TryGenerateLinks(IEnumerable`1 employeesDto, String fields, Guid companyId, HttpContext httpContext) in C:\Users\tomotelet\source\repos\CompanyEmployees\CompanyEmployees\Utility\EmployeeLinks.cs:line 33
+   at Service.EmployeeService.GetEmployeesAsync(Guid companyId, LinkParameters linkParameters, Boolean trackChanges) in C:\Users\tomotelet\source\repos\CompanyEmployees\Service.Contracts\EmployeeService.cs:line 39
+   at Presentation.Controllers.EmployeesController.GetEmployeesForCompany(Guid companyId, EmployeeParameters employeeParameters) in C:\Users\tomotelet\source\repos\CompanyEmployees\Presentation\Controllers\EmployeesController.cs:line 27
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2022-04-18 16:35:35.1828 ERROR Something went wrong: System.InvalidCastException: Unable to cast object of type 'System.Net.Http.Headers.MediaTypeHeaderValue' to type 'Microsoft.Net.Http.Headers.MediaTypeHeaderValue'.
+   at CompanyEmployees.Utility.EmployeeLinks.ShouldGenerateLinks(HttpContext httpContext) in C:\Users\tomotelet\source\repos\CompanyEmployees\CompanyEmployees\Utility\EmployeeLinks.cs:line 46
+   at CompanyEmployees.Utility.EmployeeLinks.TryGenerateLinks(IEnumerable`1 employeesDto, String fields, Guid companyId, HttpContext httpContext) in C:\Users\tomotelet\source\repos\CompanyEmployees\CompanyEmployees\Utility\EmployeeLinks.cs:line 33
+   at Service.EmployeeService.GetEmployeesAsync(Guid companyId, LinkParameters linkParameters, Boolean trackChanges) in C:\Users\tomotelet\source\repos\CompanyEmployees\Service.Contracts\EmployeeService.cs:line 39
+   at Presentation.Controllers.EmployeesController.GetEmployeesForCompany(Guid companyId, EmployeeParameters employeeParameters) in C:\Users\tomotelet\source\repos\CompanyEmployees\Presentation\Controllers\EmployeesController.cs:line 27
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)

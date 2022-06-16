@@ -1,0 +1,7 @@
+2022-03-29 10:52:22.4516 ERROR Invalid model state for the EmployeeForUpdateDto object
+2022-03-29 10:52:42.1296 ERROR Invalid model state for the EmployeeForUpdateDto object
+2022-03-29 11:38:17.0048 ERROR patchDoc object sent from client is null.
+2022-03-29 11:38:44.6411 ERROR patchDoc object sent from client is null.
+2022-03-29 11:51:57.9415 ERROR Invalid model state for the patch document
+2022-03-29 12:18:20.6703 ERROR Invalid model state for the patch document
+2022-03-29 15:00:26.9487 INFO Company with id: 00000000-0000-0000-0000-000000000000 doesn't exist in the database.
