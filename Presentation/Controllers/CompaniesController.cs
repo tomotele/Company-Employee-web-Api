@@ -30,7 +30,7 @@ namespace Presentation.Controllers
         /// </summary>
         /// <returns>The companies list</returns>
         [HttpGet(Name = "GetCompanies")]
-        //[Authorize(Roles = "Manager")]
+        [Authorize]
         public async Task<IActionResult> GetCompanies()
         {
             var companies = await _service.CompanyService.GetAllCompaniesAsync(trackChanges: false);

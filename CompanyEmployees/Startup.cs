@@ -36,6 +36,7 @@ namespace CompanyEmployees
 
         public void ConfigureServices(IServiceCollection services)
         {
+            //DATABASE CONNECTION
             services.AddDbContext<RepositoryContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
@@ -57,9 +58,13 @@ namespace CompanyEmployees
             //IDENTITY
             services.AddAuthentication();
             services.ConfigureIdentity();
+
             //JWT
             services.ConfigureJWT(Configuration);
             services.AddJwtConfiguration(Configuration);
+
+            //AUTHENTICATION HANDLER
+            //services.ConfigureAuthenticationHandler();
 
             //ACTION FILTER
             services.AddScoped<ValidationFilterAttribute>();
@@ -121,11 +126,7 @@ namespace CompanyEmployees
             {
                 ForwardedHeaders = ForwardedHeaders.All
             });
-
-
-
-            app.UseAuthorization();
-
+            
 
             app.UseEndpoints(endpoints =>
             {
